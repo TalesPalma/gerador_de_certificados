@@ -1,9 +1,9 @@
 import os
+import pypandoc
 import pandas as pd
 from docx import Document
 from docx.shared import Pt
 from docx.oxml.ns import qn
-from docx2pdf import convert
 
 def substituir_texto_no_modelo(modelo_path, nome, cidade):
     """Substitui o texto no modelo do certificado com o nome e cidade do candidato."""
@@ -44,9 +44,10 @@ def gerar_certificado_pdf_com_modelo(nome, cidade, modelo_path, caminho_pdf):
     modelo_modificado = substituir_texto_no_modelo(modelo_path, nome, cidade)
     
     try:
-        # Usando docx2pdf para converter o arquivo .docx para .pdf no caminho desejado
-        convert(modelo_modificado, caminho_pdf)
+        # Usando pypandoc para converter o arquivo .docx para .pdf
+        output = pypandoc.convert_file(modelo_modificado, 'pdf', outputfile=caminho_pdf)
         
+        # O caminho do PDF gerado será o especificado em `caminho_pdf`
         return caminho_pdf
     
     except Exception as e:
