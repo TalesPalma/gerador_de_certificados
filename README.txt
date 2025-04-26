@@ -3,10 +3,19 @@
 Este projeto gera certificados personalizados em PDF com base em um template e uma planilha Excel.
 
 ## Requisitos
-
 - Python 3.8+
 - Pip
-- Fonte Arial no sistema (ajuste `FONT_PATH` se necessário)
+
+## Instalar python macOS
+```bash
+brew install python
+```
+
+## Instalar pip macOS
+```bash
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+```
 
 ## Instalação
 
@@ -14,4 +23,6 @@ Este projeto gera certificados personalizados em PDF com base em um template e u
 python -m venv venv
 source venv/bin/activate  # Linux/macOS
 pip install -r requirements.txt
+```
+
 
